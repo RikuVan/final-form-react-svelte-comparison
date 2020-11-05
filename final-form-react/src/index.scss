@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 1.5em;
+  font-weight: 200;
+  line-height: 1.5;
+  word-wrap: break-word;
+  text-align: center;
+  background: #111;
+  color: #00caff;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  width: 80vw;
+  font-size: 4.5em;
+  font-weight: 100;
+  line-height: 1.25;
+  margin: auto;
+}
+
+input {
+  border: 1px solid #00caff;
+  background: #111;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0.02em;
+  line-height: inherit;
+  opacity: 1;
+  outline: 0;
+  margin: 25px 0;
+  padding: 15px 20px;
+  max-width: 450px;
+  min-width: 300px;
+  width: 60vw;
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+
+input:hover,
+input:focus {
+  background: #00caff;
+  color: Black;
+  transform: scale(1.2);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.error {
+  color: #ff9ef6;
+  animation: blink 2s infinite;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  color: palevioletred;
+}
+
+.row input {
+  border: 2px solid palevioletred;
+  &:hover,
+  &:focus {
+    background: palevioletred;
+    color: Black;
+    transform: scale(1.2);
+  }
+}
+
+button {
+  background-color: transparent;
+  border-radius: 0px;
+  border: 1px solid #039de7;
+  color: #039de7;
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0;
+  outline: none;
+  padding: 10px 15px;
+  transition: background-color 300ms cubic-bezier(0.35, 0, 0.25, 1);
+  will-change: background-color;
+
+  &:hover,
+  &:active,
+  &:disabled {
+    background-color: #039de7;
+    color: #111111;
+  }
+  &:active {
+    outline: 2px solid #039de7;
+  }
+  &:focus {
+    border: 1px solid #039de7;
+  }
+}
+
+button + button {
+  margin-left: 15px;
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  color: palevioletred;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.array-row {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: auto;
+  justify-content: space-evenly;
+}
+
+.list-length-input {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
