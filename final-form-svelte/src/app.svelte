@@ -22,6 +22,7 @@
   let stuffLength = null
   let interval
   let count = 0
+  let listLengthField = null
 
   onMount(() => {
     listOfStuffField = fields.get('list_of_stuff')
@@ -48,6 +49,7 @@
   $: stuffLength = $listOfStuffField?.input ? $listOfStuffField?.input.value.length : null
 
   function handleUpdate(lenValue?: number) {
+    listLengthField = lenValue
     if (stuffLength === null) {
       return
     } else if (!lenValue) {
@@ -73,10 +75,13 @@
     <FormStateDebugger />
     <FieldArray name="list_of_stuff" let:fields let:mutators let:meta>
       <div class="array-row">
-        <div class="buttons">
-          <button type="button" on:click|preventDefault={() => mutators.pop()}>-</button>
-          <button type="button" on:click|preventDefault={() => mutators.push({})}>+</button>
-        </div>
+        {#if !listLengthField}
+          <div class="buttons">
+            <button type="button" on:click|preventDefault={() => mutators.pop()}>-</button>
+            <button type="button" on:click|preventDefault={() => mutators.push({})}>+</button>
+          </div>
+        {/if}
+        {listLengthField + ''}
         <div class="list-length-input">
           <Field name="list_length" let:input on:update={({ detail }) => handleUpdate(detail)}>
             <input type="number" on:keyup={input.onChange} value={input.value} />
